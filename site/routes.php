@@ -3,11 +3,11 @@
 
 if ( resolve('/'))
 {
-    echo "Home";
+    render('site/home','site');
 }
 elseif ( resolve('/contato'))
 {
-    echo "Contato";
+    render('site/contato','site');
 }
 else
 {
