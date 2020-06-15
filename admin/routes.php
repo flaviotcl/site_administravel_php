@@ -1,11 +1,16 @@
 <?php
 
-$path = $_SERVER['PATH_INFO'] ?? '/';
 
-if ($path == '/admin')
+
+if ( resolve('/admin'))
 {
-    echo "ADMINISTRAÇÃO";
-}else
+    echo "Administração";
+}
+elseif ( resolve('/admin/pages'))
 {
-    echo "Página não encontrada";
+    echo "Administração de Páginas";
+}
+else
+{
+    echo 'Página não encontrada';
 }
