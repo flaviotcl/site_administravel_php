@@ -1,4 +1,5 @@
 <?php
+require __DIR__.'/src/error_handler.php';
 
 require __DIR__.'/src/resolve-route.php';
 
