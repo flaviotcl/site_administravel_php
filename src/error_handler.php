@@ -2,7 +2,8 @@
 
 function setInternalServerError($errno, $errstr,  $errfile, $errline)
 {
-    
+    // O Código abaixo significa que ocorreu um erro interno na Aplicação.
+    http_response_code(500);
     echo '<h3>Error</> ';
 
     if (!DEBUG) {

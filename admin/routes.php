@@ -12,5 +12,6 @@ elseif ( resolve('/admin/pages'))
 }
 else
 {
+    http_response_code(404);
     echo 'Página não encontrada';
 }
