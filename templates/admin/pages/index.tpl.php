@@ -20,4 +20,4 @@
     </tbody>
 </table>
 
-<a href="/admin/pages/create" class="btn btn-secondary">NEW</a>
+<a href="/admin/pages/create" class="btn btn-secondary btn-sm">NEW</a>
