@@ -1,4 +1,4 @@
-<h3 class="mb-5">Administração de Páginas</h3>
+<h3 class="mb-5">Detalhes da Página</h3>
 
 
 <div class="row">
@@ -24,8 +24,8 @@
 </div>
 
 <p>
-    <a href="admin/pages/1/edit" class="btn btn-primary">Edit</a>
-    <a href="admin/pages/1/delete" class="btn btn-danger">Delete</a>
+    <a href="/admin/pages/1/edit" class="btn btn-primary">Edit</a>
+    <a href="/admin/pages/1/delete" class="btn btn-danger">Delete</a>
 </p>
 
 
