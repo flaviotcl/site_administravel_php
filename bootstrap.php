@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require __DIR__.'/config.php';
 
 require __DIR__.'/src/error_handler.php';
@@ -10,6 +12,7 @@ require __DIR__.'/src/render.php';
 
 require __DIR__.'/src/connection.php';
 
+require __DIR__.'/src/flash.php';
 
 if(resolve('/admin/?(.*)'))
 {
