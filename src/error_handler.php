@@ -1,6 +1,6 @@
 <?php
 
-function setInternalServerError($errno, $errstr,  $errfile, $errline)
+function setInternalServerError($errno, $errstr = null, $errfile = null, $errline = null)
 {
     // O Código abaixo significa que ocorreu um erro interno na Aplicação.
     http_response_code(500);
@@ -35,7 +35,7 @@ function setInternalServerError($errno, $errstr,  $errfile, $errline)
             break;
     }
     echo '</span>';
-
+    
     //Aprimorando manipulação de erros.
     echo '<ul>';
     foreach (debug_backtrace() as $error) {
@@ -47,6 +47,7 @@ function setInternalServerError($errno, $errstr,  $errfile, $errline)
         }
     }
     echo '</ul>';
+    
 
 
     exit;
