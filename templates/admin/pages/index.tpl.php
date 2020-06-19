@@ -8,15 +8,15 @@
         </tr>
     </thead>
     <tbody>
+    <?php foreach ($data['pages'] as $page) : ?>
         <tr>
-            <td>1</td>
-            <td>
-                <a href="/admin/pages/1">Página Inicial</a>
-            </td>
+            <td><?php echo $page['id']; ?></td>
+            <td><a href="/admin/pages/<?php echo $page['id']; ?>"><?php echo $page['title']; ?></a></td>
             <td class="text-right">
-                <a href="/admin/pages/1" class="btn btn-primary btn-sm">View</a>
+                <a href="/admin/pages/<?php echo $page['id']; ?>" class="btn btn-primary btn-sm">ver</a>
             </td>
         </tr>
+    <?php endforeach; ?>
     </tbody>
 </table>
 
