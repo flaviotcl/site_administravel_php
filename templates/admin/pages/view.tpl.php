@@ -25,7 +25,7 @@
 
 <p>
     <a href="/admin/pages/1/edit" class="btn btn-primary">Edit</a>
-    <a href="/admin/pages/1/delete" class="btn btn-danger">Delete</a>
+    <a href="/admin/pages/1/delete" class="btn btn-danger confirm">Delete</a>
 </p>
 
 
