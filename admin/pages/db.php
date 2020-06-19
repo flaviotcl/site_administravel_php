@@ -55,7 +55,14 @@ $pages_edit = function ($id) use ($conn) {
     return $stmt->execute();
 };
 
-$pages_delete = function($id){
-    //Remover uma Página.
-    flash('Removeu registro com Sucesso', 'success');
+$pages_delete = function ($id) use ($conn) {
+     //Remover uma Página.
+    $sql = 'DELETE FROM pages WHERE id=?';
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('i', $id);
+
+    flash('Removeu registro com sucesso', 'success');
+
+    return $stmt->execute();
 };
