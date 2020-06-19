@@ -3,7 +3,7 @@
 <form action="" method="post">
     <div class="form-group">
         <label for="pagesTitle">Título</label>
-        <input name="title" id="pagesTitle" type="text" class="form-control" placeholder="Aqui vai o título da página ...." required value="Página Inicial"> 
+        <input name="title" id="pagesTitle" type="text" class="form-control" placeholder="Aqui vai o título da página ...." required value="<?php echo $data['page']['title']; ?>"> 
 
     </div>
     <div class="form-group">
@@ -12,13 +12,13 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">/</span>
             </div>
-            <input name="url" id="pagesUrl" type="text" class="form-control" placeholder="Url amigável, deixei em branco p/ informar a Página Inicial ...">
+            <input name="url" id="pagesUrl" type="text" class="form-control" placeholder="Url amigável, deixei em branco p/ informar a Página Inicial ..." value="<?php echo $data['page']['url']; ?>">
         </div>
         
     </div>
     <div class="form-group">
         <!-- Tag q/ inseri o Editor de Texto, trix.js e trix.css carregos de /resources/trix/ -->
-        <input name ="body" id="pagesBody" type="hidden" value="<h3>Página Inicial</h3><p>Esta é a página inicial do Site</p>">
+        <input name ="body" id="pagesBody" type="hidden" value="<?php echo $data['page']['body']; ?>">
         <trix-editor input="pagesBody"></trix-editor>
     </div>
 
@@ -27,4 +27,4 @@
 
 <hr>
 
-<a href="/admin/pages/1" class="btn btn-secondary btn-sm">BACK</a>
+<a href="/admin/pages/<?php echo $data['page']['id']; ?>" class="btn btn-secondary btn-sm">BACK</a>

@@ -29,8 +29,9 @@ elseif ( $params = resolve('/admin/pages/(\d+)/edit'))
         $pages_edit($params[1]);
         return header('location: /admin/pages/'.$params[1]);
     }
-
-    render('admin/pages/edit','admin');
+    $page = $pages_one($params[1]);
+    
+    render('admin/pages/edit','admin', ['page' => $page]);
 
 }
 elseif ( $params = resolve('/admin/pages/(\d+)/delete'))
