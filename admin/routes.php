@@ -16,7 +16,7 @@ elseif ( resolve('/admin/users.*'))
 }
 elseif ( resolve('/admin/upload/image'))
 {
-    echo "Deu cersssssto";
+    echo json_encode($_FILES);
 }
 else
 {
