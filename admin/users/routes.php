@@ -24,6 +24,12 @@ elseif ( $params = resolve('/admin/users/(\d+)'))
 }
 elseif ( $params = resolve('/admin/users/(\d+)/edit'))
 {
+   if ($_SERVER['REQUEST_METHOD'] === 'POST')
+   {
+      $users_edit($params[1]);
+      return header('location: /admin/users/'.$params[1]);
+   }
+
    $user = $users_view($params[1]);
    render('admin/users/edit', 'admin', compact('user'));
 }

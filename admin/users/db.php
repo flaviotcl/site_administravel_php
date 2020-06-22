@@ -5,7 +5,7 @@ function users_get_data ($redirectOnError) {
     $password = filter_input(INPUT_POST, 'password');
   
 
-    if (is_null($email)) {
+    if (!$email) {
         flash('Informe o campo de Email', 'error');
         header('location: ' . $redirectOnError);
         die();
@@ -55,9 +55,30 @@ $users_create = function () use ($conn)
     return $stmt->execute();
 };
 
-$users_update = function () use ($conn)
+$users_edit = function ($id) use ($conn)
 {
+    $data = users_get_data('/admin/users'.$id.'/edit');
 
+    $sql = 'UPDATE users SET email=? , updated=NOW(), created=NOW() WHERE id=?';
+
+    if ($data['password'])
+    {
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);        
+        $sql = 'UPDATE users SET email=? , password=? , updated=NOW(), created=NOW() WHERE id=?';
+    }
+
+    $stmt = $conn->prepare($sql);
+
+    if($data['password'])
+    {
+        $stmt->bind_param('ssi',$data['email'], $data['password'], $id);
+    }else {
+        $stmt->bind_param('si',$data['email'], $id);
+    }
+
+    flash('Salvo com sucesso','success');
+
+    return $stmt->execute();
 
 };
 $users_delete = function ($id) use ($conn)
