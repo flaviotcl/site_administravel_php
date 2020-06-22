@@ -3,7 +3,7 @@
 <form method="post">
     <div class="form-group">
         <label for="usersEmail">Email</label>
-        <input id="usersEmail" type="email" name="email" class="form-control" value="flaviotcl@gmail.com">
+        <input id="usersEmail" type="email" name="email" class="form-control" value="<?php echo $data["user"]["email"]; ?>">
     </div>
     <div class="form-group">
         <label for="usersPasswd">Password</label>
@@ -14,6 +14,6 @@
 
 <hr>
 
-<a href="/admin/users/1" class="btn btn-secondary btn-sm">BACK</a>
+<a href="/admin/users/<?php echo $data["user"]["id"]; ?>" class="btn btn-secondary btn-sm">BACK</a>
 
 
