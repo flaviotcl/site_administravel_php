@@ -14,6 +14,10 @@ elseif ( resolve('/admin/users.*'))
 {
     include __DIR__.'/users/routes.php';
 }
+elseif ( resolve('/admin/upload/image'))
+{
+    echo "Deu cersssssto";
+}
 else
 {
     http_response_code(404);

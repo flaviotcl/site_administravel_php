@@ -48,13 +48,36 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="/resources/trix/trix.js"></script>
     <script src="/resources/pnotify/pnotify.custom.min.js"></script>
 
     <script>
+        document.addEventListener('trix-attachment-add', function(){
+            const attachment = event.attachment;
+            if(!attachment.file)
+            {
+                return;
+            }
+
+            const form = new FormData();
+            form.append('file', attachment.file);
+
+            $.ajax({
+                url: '/admin/upload/image',
+                method: 'POST',
+                data: form,
+                contentType: false,
+                processData: false
+            }).done( function () {
+                console.log('Deu Certo');
+            }).fail( function(){
+                console.log('Deu errado');
+            });
+        });
+
         <?php flash(); ?>   
 
         const confirmEl = document.querySelector('.confirm');
