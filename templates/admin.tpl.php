@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/trix/trix.css">
     <link rel="stylesheet" href="/resources/pnotify/pnotify.custom.min.css">
@@ -16,12 +17,12 @@
     <div id="header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             
-            <a href="" class="navbar-brand">Admin Site Treinamento</a>
+            <a href="/admin" class="navbar-brand">Admin Site</a>
            
             <span class="navbar-text">
-                 Painel Administrativo - Site Treinamento
+                 Painel Administrativo
             </span>
-
+            <a href="/admin/auth/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i></a>
         </nav>
     </div>
     <div id="main">
@@ -32,10 +33,10 @@
                         <span class="nav-link text-white-50"><small>MENU</small></span>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link active">Páginas</a>
+                        <a href="/admin/pages" class="nav-link <?php if (resolve('/admin/pages.*')): ?> active<?php endif;?>"><i class="far fa-file-alt"></i> Páginas</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Usuários</a>
+                        <a href="/admin/users" class="nav-link<?php if (resolve('/admin/users.*')): ?> active<?php endif;?>"><i class="far fa-user"></i> Usuários</a>
                     </li>
                 </ul>
             </div>

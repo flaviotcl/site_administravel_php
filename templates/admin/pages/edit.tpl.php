@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
         <!-- Tag q/ inseri o Editor de Texto, trix.js e trix.css carregos de /resources/trix/ -->
-        <input name ="body" id="pagesBody" type="hidden" value="<?php echo $data['page']['body']; ?>">
+        <input name ="body" id="pagesBody" type="hidden" value="<?php echo htmlentities($data['page']['body']); ?>">
         <trix-editor input="pagesBody"></trix-editor>
     </div>
 
