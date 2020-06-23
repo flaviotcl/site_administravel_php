@@ -1,6 +1,6 @@
 <?php
 
-
+auth_protection();
 
 if ( resolve('/admin'))
 {
