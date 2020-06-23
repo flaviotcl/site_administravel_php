@@ -80,8 +80,16 @@
 
                     return xhr;
                 }
-            }).done( function () {
-                console.log('Deu Certo');
+            }).done( function (response) {
+
+                console.log(response);
+
+                attachment.setAttributes({
+                    url: response,
+                    href: response
+                });
+
+
             }).fail( function(){
                 console.log('Deu errado');
             });

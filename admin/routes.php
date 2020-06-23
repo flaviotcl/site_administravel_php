@@ -16,7 +16,37 @@ elseif ( resolve('/admin/users.*'))
 }
 elseif ( resolve('/admin/upload/image'))
 {
-    echo json_encode($_FILES);
+    $file = $_FILES['file'] ?? null;
+
+    // Encerro a execução do script pois nenhum arquivo foi enviado.
+    if (!$file)
+    {
+        http_response_code(422);
+        echo json_encode(['status' => 'Nenhum Arquivo Enviado!']); 
+        exit;
+    }
+    
+    $allowedTypes = [
+        'image/gif',
+        'image/jpg',
+        'image/jpeg',
+        'image/png'
+    ];
+
+    // Encerro a execução do script pois foi enviado um Arquivo Não permitido.
+    if (!in_array($file['type'], $allowedTypes))
+    {
+        http_response_code(422);
+        echo "Arquivo não Permitido!"; 
+        exit;
+    }
+
+    $name = uniqid(rand(), true) . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
+
+    move_uploaded_file($file['tmp_name'], __DIR__ . '/../public/upload/' . $name);
+
+    echo '/upload/' . $name;
+
 }
 else
 {
