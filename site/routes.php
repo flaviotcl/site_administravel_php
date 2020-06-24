@@ -1,16 +1,22 @@
 <?php
 
+require __DIR__.'/../admin/pages/db.php';
 
-if ( resolve('/'))
+if ( resolve('/contato'))
 {
-    render('site/home','site');
+    $pages = $pages_all();
+    render('site/contato','site', compact('pages'));
 }
-elseif ( resolve('/contato'))
-{
-    render('site/contato','site');
-}
-else
-{
-    http_response_code(404);
-    echo 'Página não encontrada';
+elseif ( $params = resolve('/(.*)'))
+ {
+    $pages = $pages_all();
+
+    foreach($pages as $page)
+    {
+        if($page['url'] == $params[1])
+        {
+            break;
+        }
+    }
+    render('site/page', 'site', compact('pages', 'page'));
 }
